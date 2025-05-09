@@ -12,6 +12,8 @@
         texlive.combined.scheme-full
         texlab
         tectonic
+        texliveTeTeX
+        pandoc
       ];
     };
   };
