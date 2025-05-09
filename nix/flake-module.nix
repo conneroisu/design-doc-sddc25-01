@@ -9,6 +9,10 @@
   }: {
     devShells.default = pkgs.mkShell {
       packages = with pkgs; [
+        nixd
+        statix
+        deadnix
+        alejandra
         texlive.combined.scheme-full
         texlab
         tectonic
