@@ -13,6 +13,7 @@
         alejandra
 
         texlive.combined.scheme-full # LaTeX
+        texliveFull
         texlab
         tectonic
         texliveTeTeX
