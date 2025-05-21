@@ -6,6 +6,8 @@
     systems.url = "github:nix-systems/default";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -18,6 +20,7 @@
         systems = import inputs.systems;
         imports = [
           ./nix/flake-module.nix
+          inputs.treefmt-nix.flakeModule
         ];
 
         perSystem = {
@@ -32,6 +35,10 @@
             inherit system;
             config.allowUnfree = true;
             overlays = [];
+          };
+          treefmt = {
+            programs.alejandra.enable = true;
+            programs.texfmt.enable = true;
           };
         };
       }
